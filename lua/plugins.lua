@@ -8,17 +8,15 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Base16 colors
-  use 'Soares/base16.nvim'
+  use 'RRethy/nvim-base16'
 
   -- Dev icons
   use 'nvim-tree/nvim-web-devicons'
 
   -- Lualine
   use {
-  'nvim-lualine/lualine.nvim', 
-  requires = { 
-    'nvim-tree/nvim-web-devicons', opt = true 
-    }
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   -- Tabs in nvim
@@ -27,21 +25,22 @@ return require('packer').startup(function(use)
   requires = 'nvim-tree/nvim-web-devicons'
   }
 
-  -- nvim-tree
---  use {
---  'nvim-tree/nvim-tree.lua',
--- requires = {
---    'nvim-tree/nvim-web-devicons', -- optional
---    },
---  config = function()
---   require("nvim-tree").setup {}
---  end
---  }
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+  end,
+  }
 
   -- Telescope
   use {
   'nvim-telescope/telescope.nvim', branch = '0.1.1',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  -- Discord RPC
+  use 'andweeb/presence.nvim'
 
 end)
