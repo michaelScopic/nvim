@@ -43,4 +43,17 @@ return require('packer').startup(function(use)
   -- Discord RPC
   use 'andweeb/presence.nvim'
 
+  -- Prettification
+  use { 'junegunn/vim-easy-align', disable = true }
+  
+  
+  -- Startup page
+  use {
+    'startup-nvim/startup.nvim',
+    requires = {'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim'},
+    config = function()
+      require"startup".setup()
+    end
+  }
+
 end)
