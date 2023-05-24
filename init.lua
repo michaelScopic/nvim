@@ -24,4 +24,4 @@ require('lualine').setup {
 require("startup").setup({theme = "evil"}) -- put theme name here
 
 -- TODO: Remove this line for a production release
-print("Note: This is not in a useable state.")
+print("Note: This is not in a usable state.")
